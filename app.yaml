@@ -1,0 +1,44 @@
+published:
+  - app:
+      category: life
+      application: weather
+      name: 天气
+      publish_date: 2019-7-01
+      url: /service/weather
+      desc: this is a weather app.
+
+  - app:
+      category: life
+      application: backup-image
+      name: 图片备份
+      publish_date: 2019-7-01
+      url: /service/image
+      desc: this is a backup app.
+
+  - app:
+      category: life
+      application: constellation
+      name: 星座运势
+      publish_date: 2019-7-01
+      url: /service/constellation
+      desc: this is a backup app.
+
+  - app:
+      category: life
+      application: stock
+      name: 股票
+      publish_date: 2019-7-01
+      url: /service/stock
+      desc: this is a stock app.
+
+  - app:
+      category: life
+      application: joke
+      name: 笑话大全
+      publish_date: 2019-7-01
+      url: /service/joke
+      desc: this is a joke app.
+
+
+developing:
+  - app:
