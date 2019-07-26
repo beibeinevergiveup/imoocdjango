@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
-    'authorization.apps.AuthorizationConfig'
+    'authorization.apps.AuthorizationConfig',
+    'django-crontab'
 ]
 
 MIDDLEWARE = [
@@ -181,3 +182,7 @@ CACHES = {
         'LOCATION': 'backend-cache'  # 内存缓存
     }
 }
+
+CRONJOBS = [
+    ('*/1 * * * *', 'cron.jobs.demo" ')
+]
