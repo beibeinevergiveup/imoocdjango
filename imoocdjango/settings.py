@@ -213,7 +213,7 @@ CACHES = {
 }
 
 CRONJOBS = [
-    ('*/1 * * * *', 'cron.jobs.report_by_mail" ')
+    ('*/1 * * * *', 'cron.jobs.report_by_mail')
 ]
 # QQ邮箱SMTP地址
 EMAIL_HOST = 'smtp.qq.com'
