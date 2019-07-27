@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
-    'module.middleware.StatisticsMiddleware'
+    'module.middleware.StatisticsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -209,7 +209,7 @@ CACHES = {
 }
 
 CRONJOBS = [
-    ('*/1 * * * *', 'cron.jobs.statistics" ')
+    ('*/1 * * * *', 'cron.jobs.report_by_mail" ')
 ]
 # QQ邮箱SMTP地址
 EMAIL_HOST = 'smtp.qq.com'

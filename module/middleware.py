@@ -23,8 +23,9 @@ class StatisticsMiddleware:
         content_list.append('now=[%d]' % tock)
         content_list.append('path=[%s]' % path)
         content_list.append('full_path=[%s]' % full_path)
-        content_list.append('cost=[%.6]' % cost)
+        content_list.append('cost=[%.6f]' % cost)
         content = settings.STATISTICS_SPLIT_FLAG.join(content_list)
+        logger.info(content)
 
         return response
 
