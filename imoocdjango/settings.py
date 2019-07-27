@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
+    'module.middleware.StatisticsMiddleware'
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -143,6 +144,9 @@ LOGGING = {
         'standard': {
             'format': '%(asctime)s [%(threadName)s: %(thread)d]'
                       '%(pathname)s:%(funcName)s:%(lineno)d %(levelname)s - %(message)s'
+        },
+        'simple': {
+            'format': '%(asctime)s %(message)s'
         }
     },
     'filters': {
@@ -151,6 +155,10 @@ LOGGING = {
         }
     },
     'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
         'console_handler': {
             'level': 'INFO',
             'class': 'logging.StreamHandler',
@@ -164,7 +172,24 @@ LOGGING = {
             'backupCount': 5,
             'formatter': 'standard',
             'encoding': 'utf-8'
-
+        },
+        'statistic_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',  # 文件自动切割
+            'filename': os.path.join(LOG_DIR, 'statistics.log'),
+            'maxBytes': 1024 * 1024 * 1024,
+            'backupCount': 5,
+            'formatter': 'simple',
+            'encoding': 'utf-8'
+        },
+        'error_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',  # 文件自动切割
+            'filename': os.path.join(LOG_DIR, 'error.log'),
+            'maxBytes': 1024 * 1024 * 1024,
+            'backupCount': 5,
+            'formatter': 'standard',
+            'encoding': 'utf-8'
         }
     },
     'loggers': {
@@ -186,3 +211,18 @@ CACHES = {
 CRONJOBS = [
     ('*/1 * * * *', 'cron.jobs.demo" ')
 ]
+# QQ邮箱SMTP地址
+EMAIL_HOST = 'smtp.qq.com'
+# 端口 465加密端口 25普通smtp端口
+EMAIL_PORT = '465'
+# 发送邮件的邮箱
+EMAIL_HOST_USER = 'tttbd@qq.com'
+# 在邮箱中设置的客户端授权码
+EMAIL_HOST_PASSWORD = 'zwazrlpkwteabcch'
+# 开启TLS
+EMAIL_USE_TLS = True
+# 收件人看到的发件人
+EMAIL_FROM = 'tttbd@qq.com'
+
+# 统计字段分隔号
+STATISTICS_SPLIT_FLAG = '||'
