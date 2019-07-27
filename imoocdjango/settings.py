@@ -173,7 +173,7 @@ LOGGING = {
             'formatter': 'standard',
             'encoding': 'utf-8'
         },
-        'statistic_handler': {
+        'statistics_handler': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',  # 文件自动切割
             'filename': os.path.join(LOG_DIR, 'statistics.log'),
@@ -196,6 +196,10 @@ LOGGING = {
         'django': {
             'handlers': ['console_handler', 'file_handler'],
             'filters': ['test'],
+            'level': 'DEBUG'
+        },
+        'statistics': {
+            'handlers': ['statistics_handler'],
             'level': 'DEBUG'
         }
     }
